@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CorStellae - Student Profile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">CorStellae</a></div>
+    <button class="hamburger-btn" id="open-sidebar-btn" aria-label="Open Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Side Drawer -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">CorStellae</div>
+      <span class="close-sidebar" id="close-sidebar-btn">&times;</span>
+    </div>
+    <div id="sidebar-user-box" class="sidebar-user-box"></div>
+    <ul class="sidebar-menu">
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="submit.html">✍️ Share Your Story</a></li>
+      <li><a href="admin.html" id="sidebar-admin-link" class="admin-link" style="display: none;">🛡️ Admin Panel</a></li>
+    </ul>
+    <div class="sidebar-footer" id="sidebar-footer"></div>
+  </aside>
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+  <!-- Profile Content Container -->
+  <main class="container profile-container">
+    <div class="profile-card">
+      <div id="view-cover" class="profile-banner"></div>
+      <div class="profile-header-content">
+        <img id="view-avatar" src="https://via.placeholder.com/100" alt="Avatar" class="profile-avatar-lg">
+        <div class="profile-main-info">
+          <h2 id="view-nickname">Loading...</h2>
+          <p id="view-username" class="username-tag">@username</p>
+          <p id="view-bio" class="bio-text">No bio provided yet.</p>
+        </div>
+        <div id="profile-actions" class="profile-actions">
+          <!-- Populated via profile.js: Edit Profile for owner, Send Message for others -->
+        </div>
+      </div>
+    </div>
+
+    <!-- User's Public Posts Feed -->
+    <section class="user-posts-section">
+      <h3 id="posts-heading">Stories & Posts</h3>
+      <div id="user-posts-container" class="posts-list"></div>
+    </section>
+  </main>
+
+  <!-- Edit Own Profile Modal -->
+  <div id="edit-profile-page-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeEditProfileModal()">&times;</span>
+      <h3>Edit Your Profile</h3>
+      <form id="page-profile-form">
+        <!-- Avatar Preview & Upload -->
+        <div class="form-group" style="text-align: center;">
+          <label style="display:block; margin-bottom: 5px; font-weight:600;">Profile Picture</label>
+          <img id="edit-preview-avatar" src="https://via.placeholder.com/80" style="width:80px; height:80px; border-radius:50%; object-fit:cover; margin-bottom: 6px;">
+          <br>
+          <input type="file" id="edit-avatar-file" accept="image/*">
+        </div>
+
+        <!-- Cover Photo Preview & Upload -->
+        <div class="form-group" style="text-align: center;">
+          <label style="display:block; margin-bottom: 5px; font-weight:600;">Cover Photo</label>
+          <img id="edit-preview-cover" src="https://via.placeholder.com/300x100" style="width:100%; height:80px; object-fit:cover; border-radius:6px; margin-bottom: 6px;">
+          <br>
+          <input type="file" id="edit-cover-file" accept="image/*">
+        </div>
+
+        <div class="form-group">
+          <label>Display Nickname</label>
+          <input type="text" id="edit-nickname-input" required>
+        </div>
+
+        <div class="form-group">
+          <label>About Bio</label>
+          <textarea id="edit-bio-input" rows="3" placeholder="Tell other students about yourself..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Save Profile Changes</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Send Message Modal -->
+  <div id="message-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeMessageModal()">&times;</span>
+      <h3 id="msg-modal-title">Send Message</h3>
+      <form id="send-msg-form">
+        <div class="form-group">
+          <textarea id="msg-text-input" rows="4" placeholder="Write a supportive private message..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="profile.js"></script>
+</body>
+</html>

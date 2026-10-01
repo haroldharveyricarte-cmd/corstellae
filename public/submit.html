@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CorStellae - Share Your Story</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">CorStellae</div>
+    <button class="hamburger-btn" id="open-sidebar-btn" aria-label="Open Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Side Drawer Menu -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">CorStellae</div>
+      <span class="close-sidebar" id="close-sidebar-btn">&times;</span>
+    </div>
+
+    <div id="sidebar-user-box" class="sidebar-user-box"></div>
+
+    <ul class="sidebar-menu">
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="submit.html" class="active">✍️ Share Your Story</a></li>
+      <li id="sidebar-admin-link" style="display: none;"><a href="admin.html" class="admin-link">🛡️ Admin Panel</a></li>
+    </ul>
+
+    <div class="sidebar-footer" id="sidebar-footer"></div>
+  </aside>
+
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+  <!-- Main Submission Form Container -->
+  <main class="container">
+    <div class="form-card">
+      <h2>Share Your Story</h2>
+      <p class="form-description">
+        Your submission will be reviewed by an administrator before being published to ensure a safe environment.
+      </p>
+
+      <form id="submit-post-form">
+        
+        <!-- Identity Option Toggle -->
+        <div class="form-group">
+          <label>Posting Identity</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="authorType" value="anonymous" checked>
+              <span>Post Anonymously</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="authorType" value="identified">
+              <span>Include My Name (<strong id="user-display-preview">Student</strong>)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Post Title -->
+        <div class="form-group">
+          <label for="postTitle">Title</label>
+          <input type="text" id="postTitle" placeholder="Give your story a title..." required>
+        </div>
+
+        <!-- Post Content -->
+        <div class="form-group">
+          <label for="postContent">Your Story / Message</label>
+          <textarea id="postContent" rows="6" placeholder="Write what's on your heart..." required></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn">Submit for Review</button>
+      </form>
+
+      <div id="form-message" class="message-box" style="display: none;"></div>
+    </div>
+  </main>
+
+  <!-- Profile Modal Popup -->
+  <div id="profile-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close-modal" id="close-profile-btn">&times;</span>
+      <h3>User Profile</h3>
+      
+      <div class="profile-preview">
+        <img id="profile-avatar-preview" src="https://via.placeholder.com/80" alt="Avatar">
+      </div>
+
+      <form id="profile-form">
+        <div class="form-group">
+          <label>Profile Photo</label>
+          <input type="file" id="profile-file-input" accept="image/*">
+        </div>
+
+        <div class="form-group">
+          <label for="profile-nickname">Nickname / Display Name</label>
+          <input type="text" id="profile-nickname" required>
+        </div>
+
+        <button type="submit" class="submit-btn">Save Changes</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="submit.js"></script>
+</body>
+</html>

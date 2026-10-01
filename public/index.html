@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CorStellae - Student Stories</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">CorStellae</div>
+    <button class="hamburger-btn" id="open-sidebar-btn" aria-label="Open Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Side Drawer Menu -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">CorStellae</div>
+      <span class="close-sidebar" id="close-sidebar-btn">&times;</span>
+    </div>
+
+    <!-- User Section in Sidebar -->
+    <div id="sidebar-user-box" class="sidebar-user-box">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Navigation Options -->
+    <ul class="sidebar-menu">
+      <li><a href="index.html" class="active">🏠 Home</a></li>
+      <li><a href="submit.html">✍️ Share Your Story</a></li>
+      <li id="sidebar-admin-link" style="display: none;"><a href="admin.html" class="admin-link">🛡️ Admin Panel</a></li>
+    </ul>
+
+    <!-- Bottom Actions -->
+    <div class="sidebar-footer" id="sidebar-footer">
+      <a href="login.html" class="submit-btn text-center" style="display: block; text-decoration: none;">Login / Register</a>
+    </div>
+  </aside>
+
+  <!-- Sidebar Overlay -->
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+  <!-- Hero Header Section -->
+  <header class="hero">
+    <h1>CorStellae</h1>
+    <p class="tagline">"Every heart has a story, and every story deserves to be heard."</p>
+  </header>
+
+  <!-- Main Feed Section -->
+  <main class="container">
+    <div class="feed-header">
+      <h2>Approved Stories</h2>
+      <p>Browse posts shared by fellow students.</p>
+    </div>
+
+    <div id="posts-container" class="posts-list"></div>
+  </main>
+
+ <!-- Profile Edit Modal -->
+<div id="profile-modal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close-modal" id="close-profile-btn">&times;</span>
+    <h3>Edit Profile</h3>
+    <form id="profile-form">
+      <div class="form-group" style="text-align: center; margin-bottom: 15px;">
+        <img id="profile-avatar-preview" src="https://via.placeholder.com/80" alt="Avatar Preview" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 8px;">
+        <br>
+        <input type="file" id="profile-file-input" accept="image/*" style="font-size: 0.85rem;">
+      </div>
+      <div class="form-group">
+        <label for="profile-nickname">Display Nickname</label>
+        <input type="text" id="profile-nickname" required>
+      </div>
+      <button type="submit" class="submit-btn">Save Profile</button>
+    </form>
+  </div>
+</div>
+
+  <script src="app.js"></script>
+</body>
+</html>
