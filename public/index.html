@@ -84,4 +84,23 @@
 
   <script src="app.js"></script>
 </body>
+
+<script>
+  // Point this to your live Render backend URL
+  const API_BASE_URL = 'https://corstellae-backend.onrender.com';
+
+  // Example function to send data to your backend
+  async function testBackendConnection() {
+    try {
+      const response = await fetch(`${API_BASE_URL}/`);
+      const data = await response.text();
+      console.log('Backend response:', data);
+    } catch (error) {
+      console.error('Error connecting to backend:', error);
+    }
+  }
+
+  // Run connection test when page loads
+  testBackendConnection();
+</script>
 </html>
